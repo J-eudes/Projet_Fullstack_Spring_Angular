@@ -1,5 +1,17 @@
-<p>main works!</p>
+<h3><strong>DOM du main</strong></h3>
 
-<div>
-    <p *ngFor="let filiere of filieres"> {{ filiere.modules | json}}</p>
-</div>
+<ul>
+    <li>
+        <a [routerLink]="['/filiere']">Filières</a>
+    </li>
+    <li>
+        <a [routerLink]="['/module']">Modules</a>
+    </li>
+
+</ul>
+
+<p>***********************</p>
+
+<router-outlet></router-outlet>
+
+

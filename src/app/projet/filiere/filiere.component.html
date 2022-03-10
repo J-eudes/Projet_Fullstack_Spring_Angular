@@ -1,0 +1,60 @@
+<h3> <strong>DOM filiere</strong></h3>
+
+<div class="topnav">
+    <ul>
+        <li>
+            <a class="active" [routerLink]="['/addfiliere']">Ajouter une Filière</a>
+        </li>
+        <li>
+            <a [routerLink]="['/updatefiliere']">Mettre à jour une Filière</a>
+        </li>
+        <li>
+            <a href="#contact">Supprimer une Filière</a>
+        </li>
+        <li>
+            <a href="#about">Lister les Filières</a>
+        </li>
+    </ul>  
+</div>
+<br>
+
+<!--
+<div>
+    <div *ngFor="let filiere of filieres"> 
+        <p>Id filiere: {{ filiere.id}}</p>
+        <p>Libelle filiere: {{ filiere.libelle}} </p>   
+        <div *ngFor="let mod of filiere.modules"> <strong> Information module: </strong>           
+            <p> Nom du module: {{ mod.libelle}} </p>
+            <p> Date de debut: {{ mod.dateDebut}} </p>
+            <p> Date de fin: {{ mod.dateFin}} </p>
+            <p> Nom du formateur: {{ mod.formateur.nom }} </p>
+            
+        </div> 
+        <p>--------------</p>    
+    </div>  
+</div>
+-->
+
+<div>
+    <select (change)="handleChange($event)">
+        <option>Veuillez choisir une filière</option>
+        <option *ngFor="let filiere of filieres"> {{filiere.libelle}}</option>
+    </select>
+    <div *ngIf="selectedFiliere !== null">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Libelle</th>
+                <th>Modules</th>
+                <th>Stagiaires</th>
+            </tr>
+            <tr>
+                <td>{{ selectedFiliere.id }}</td>
+                <td>{{ selectedFiliere.libelle }}</td>
+                <td *ngFor="let mod of selectedFiliere.modules"><a [routerLink]="['/module', 'mod.libelle']">{{
+                        mod.libelle}}</a></td>
+                <td *ngFor="let stag of selectedFiliere.stagiaires">{{ stag.nom }} {{ stag.prenom}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

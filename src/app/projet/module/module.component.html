@@ -1,0 +1,12 @@
+<h3><strong>DOM Module</strong></h3>
+
+<div>
+    <div *ngFor="let module of modules">
+        <p>Id module: {{ module.id }}</p>
+        <p>Nom du module: {{ module.libelle }}</p>
+        <p>Date de début: {{ module.dateDebut }} </p>
+        <p>Date de fin: {{ module.dateFin }} </p>
+        <p>Formateur: {{ module.formateur.nom}}</p>
+
+    </div>
+</div>

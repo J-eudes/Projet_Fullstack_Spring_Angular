@@ -6,7 +6,7 @@ export interface Filiere{
     id?: number;
     libelle: string;
     modules: Module[];
-    stagiaire: Personne[];
+    stagiaires: Personne[];
 
     
 }

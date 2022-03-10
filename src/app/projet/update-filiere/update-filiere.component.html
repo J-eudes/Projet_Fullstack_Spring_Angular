@@ -1,0 +1,38 @@
+<div>
+    <select (change)="handleChange($event)">
+        <option>Veuillez choisir une filière à modifier</option>
+        <option *ngFor="let filiere of filieres"> {{filiere.libelle}}</option>
+    </select>
+    <div *ngIf="selectedFiliere !== null">
+        <!-- <table>
+            <tr>
+                <th>ID</th>
+                <th>Libelle</th>
+                <th>Modules</th>
+                <th>Stagiaires</th>
+            </tr>
+            <tr>
+                <td>{{ selectedFiliere.id }}</td>
+                <td>{{ selectedFiliere.libelle }}</td>
+                <td *ngFor="let mod of selectedFiliere.modules"><a [routerLink]="['/module', 'mod.libelle']">{{
+                        mod.libelle}}</a></td>
+                <td *ngFor="let stag of selectedFiliere.stagiaires">{{ stag.nom }} {{ stag.prenom}}</td>
+            </tr>
+        </table> -->
+        <form (submit)="handleSubmit()" #form="ngForm">
+            <label> Nom de la Filière:
+              <input type="text" placeholder={{selectedFiliere.libelle}} >
+              <p>{{selectedFiliere.id}}</p>
+            </label>
+            <br>
+            <label> Nouveau nom:
+                <input type="text" [(ngModel)]="updateFiliere" name="libelle">
+              </label>
+            <br>
+            <br>
+            <button>Valider</button>
+        </form> 
+        
+         <p *ngIf="updateFiliere !== null"> La fillière {{ updateFiliere.libelle }} a bien été crée</p> 
+    </div>
+</div>

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Filiere } from '../interfaces/filiere.interface';
-import { Module } from '../interfaces/module.interface';
-import { MainService } from '../main.service';
+
 
 @Component({
   selector: 'main',
@@ -10,12 +8,11 @@ import { MainService } from '../main.service';
 })
 export class MainComponent implements OnInit {
 
-  //PROPRIETE
-  filieres: Filiere[] = [];
-  modules: Module[] = [];
+  //PROPRIETE  
+  
 
-  constructor(private mainService: MainService ) {
-    const source$ = this.mainService.getFiliere().subscribe(filiere => {this.filieres= filiere});
+
+  constructor( ) {
    }
 
   ngOnInit(): void {
